@@ -69,8 +69,8 @@
 		return musthavevariable;
 	}
 	missAtr(1)
-	missAtr()
 	// rest 引入
+	// rest 参数后不能再有其他参数否则报错
 	function add(...values) {
 	  let sum = 0;
 
@@ -81,5 +81,6 @@
 	  return sum;
 	}
 
+	add(2, 5, 3) // 10
 	</script>
 </html>
