@@ -73,17 +73,22 @@
 	// rest 参数后不能再有其他参数否则报错
 	function add(...values) {
 	  let sum = 0;
-
 	  for (var val of values) {
 	    sum += val;
 	  }
-
 	  return sum;
 	}
-	add(2, 5, 3) // 10
+	console.log(add(2, 5, 3))
 	// 箭头函数
 	console.log('-------');
 	// 箭头函数this只能指向根函数
-	[1,2,3].map(x => x * x);
+	console.log([1,2,3].map(x => x * x))
+	// 部署管道机制pipeline
+	console.log('-------');
+	const pipeline = (...funcs) => val => funcs.reduce((a, b) => b(a), val);
+	const plus1 = a => a + 1;
+	const mult2 = a => a * 2;
+	const addThenMult = pipeline(plus1, mult2);
+	console.log(addThenMult(5))
 	</script>
 </html>
