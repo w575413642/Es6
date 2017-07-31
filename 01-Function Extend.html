@@ -8,6 +8,42 @@
 	
 </body>
 	<script type="text/javascript">
-
+	function log(x, y){
+		// 等向变量
+		y = y || 'world';
+		console.log(x, y)
+	}
+	log('1')
+	log('1','2')
+	log('1','')
+	// es6
+	console.log('-------');
+	function logE(x, y = 'world'){
+		console.log(x,y)
+	}
+	logE('1')
+	logE('1','2')
+	logE('1','')
+	// 数值为空时 发生差异
+	console.log('-------');
+	// 构造赋值
+	function Point( x = '0', y = '1'){
+		this.x = x;
+		this.y = y;
+	}
+	var p = new Point();
+	var pE = new Point(1314,520);
+	console.log(p,pE);
+	console.log('-------');
+	// 方法内赋值后不允许再次赋值
+	function foo(x = 5) {
+	  let x = 1; // error
+	  const x = 2; // error
+	}
+	try{
+		foo();
+	} catch(e){
+		console.log(e)
+	}
 	</script>
 </html>
