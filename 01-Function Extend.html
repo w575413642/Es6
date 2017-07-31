@@ -60,5 +60,26 @@
 	  return [x, y];
 	}
 	console.log(m2());
+	// 新建抛出错误
+	console.log('-------');
+	function throwIfMissing() {
+  		throw new Error('Missing parameter');
+	}
+	function missAtr(musthavevariable = throwIfMissing()){
+		return musthavevariable;
+	}
+	missAtr(1)
+	missAtr()
+	// rest 引入
+	function add(...values) {
+	  let sum = 0;
+
+	  for (var val of values) {
+	    sum += val;
+	  }
+
+	  return sum;
+	}
+
 	</script>
 </html>
