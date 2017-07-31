@@ -45,5 +45,20 @@
 	} catch(e){
 		console.log(e)
 	}
+	console.log('-------');
+	//解构复用
+	function fooE({x,y = 5} = {}){
+		console.log(x,y)
+	} 
+	fooE({})
+	fooE({x: 1})
+	fooE({x: 1, y: 2})
+	fooE()
+	// 写法二
+	console.log('-------');
+	function m2({x, y} = { x: 0, y: 0 }) {
+	  return [x, y];
+	}
+	console.log(m2());
 	</script>
 </html>
