@@ -5,7 +5,12 @@
 	<title>01</title>
 </head>
 <body>
-	
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
 </body>
 	<script type="text/javascript">
 	function log(x, y){
@@ -86,7 +91,7 @@
 	// 部署管道机制pipeline
 	console.log('-------');
 	const pipeline = (...funcs) => val => funcs.reduce((a, b) => b(a), val);
-	const plus1 = a => (a + 1,alert(a));
+	const plus1 = a => (a + 1);
 	const mult2 = a => a * 2;
 	const addThenMult = pipeline(plus1, mult2);
 	console.log(addThenMult(5));
@@ -107,6 +112,19 @@
 	}
 	console.log(addThenMultE5(100))	
 	//  -----
-	console.log('嵌套箭头函数遗留')
+	console.log('嵌套箭头函数遗留');
+	// 尾部递归	
+	function factorial(n) {
+	  if (n === 1) return 1;
+	  return n * factorial(n - 1);
+	}
+
+	factorial(5) // 120
+	// 柯里化
+	// 尾递归
+	// 尾调用优化 
+	// 调用帧
+
+
 	</script>
 </html>
