@@ -8,12 +8,21 @@
 	
 </body>
 <script type="text/javascript">
-	// ---------------------------
+	// bind 绑定函数 apply插入用法？
+ 	// ---------------------------
 	// Array
 	// 扩展运算符
 	console.log(...[1, 2, 3]);
 	console.log(1, ...[2, 3, 4], 5);
 	console.log(...[...document.querySelectorAll('div')])
 	console.log('-------');
+	function f(x, y, z) {
+		console.log(x,y,z)
+	 }
+	var a = [1,2,3];
+	// es6方式
+	f(...a)
+	// es5 apply方式
+	f.apply(null,a)
 </script>
 </html>
