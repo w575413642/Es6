@@ -86,9 +86,27 @@
 	// 部署管道机制pipeline
 	console.log('-------');
 	const pipeline = (...funcs) => val => funcs.reduce((a, b) => b(a), val);
-	const plus1 = a => a + 1;
+	const plus1 = a => (a + 1,alert(a));
 	const mult2 = a => a * 2;
 	const addThenMult = pipeline(plus1, mult2);
-	console.log(addThenMult(5))
+	console.log(addThenMult(5));
+	// 管道拆解赋值
+	function plus1E5(a){
+		return a + 1 
+	}
+	function mult2E5(a){
+		return a * 2 
+	}
+	function addThenMultE5(a) {
+		plus1E5(a),mult2E5(a)
+	}
+	function pipelineE5(...funcs){
+		funcs.reduce(function(){
+			(a, b) => b(a)
+		}, val)
+	}
+	console.log(addThenMultE5(100))	
+	//  -----
+	console.log('嵌套箭头函数遗留')
 	</script>
 </html>
