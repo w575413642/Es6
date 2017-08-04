@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>03</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var o = {
+		method(){
+			return 'Hello!'
+		}
+	};
+	var oc = {
+		method:function(){
+			return 'Hello!'
+		}
+	}
+	// 
+	var birth = '2000/01/01';
+	var Person = {
+
+	  name: '张三',
+
+	  //等同于birth: birth
+	  birth,
+
+	  // 等同于hello: function ()...
+	  hello() { console.log('我的名字是', this.name); console.log(this == Person)}
+
+	};
+	// 当前属性设为只读
+	// Create a user-defined object.
+	var obj = {};
+
+	// Add a data property.
+	obj.newDataProperty = "abc";
+
+	// Get the property descriptor.
+	var descriptor = Object.getOwnPropertyDescriptor(obj, "newDataProperty");
+
+	// Change a property attribute.
+	descriptor.writable = false;
+	Object.defineProperty(obj, "newDataProperty", descriptor);
+	//  手动实现
+	Object.defineProperty(Object, 'is', {
+  	value: function(x, y) {
+    if (x === y) {
+      // 针对+0 不等于 -0的情况
+      return x !== 0 || 1 / x === 1 / y;
+    }
+    // 针对NaN的情况
+    return x !== x && y !== y;
+  },
+  configurable: true,
+  enumerable: false,
+  writable: true // true false 控制该对象属性是否可改变 同上 *****
+});
+</script>
+</html>
