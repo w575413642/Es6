@@ -53,10 +53,15 @@
     }
     // 针对NaN的情况
     return x !== x && y !== y;
-  },
-  configurable: true,
-  enumerable: false,
-  writable: false // true false 控制该对象属性是否可改变 同上 *****
-});
+	},
+		configurable: true,
+		enumerable: false,
+		writable: false // true false 控制该对象属性是否可改变 同上 *****
+	});
+	// 合并对象时 注意对象只能赋予指针并没法复制对象
+	Object.assign({},{})
+	// 属性枚举
+	// Object.getOwnPropertyDescriptor('[Object]','[Property]')
+	
 </script>
 </html>
