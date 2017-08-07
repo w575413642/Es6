@@ -43,6 +43,7 @@
 
 	// Change a property attribute.
 	descriptor.writable = false;
+	// definProperty -> （需要写入的对象，‘需要写入的属性’，对象）
 	Object.defineProperty(obj, "newDataProperty", descriptor);
 	//  手动实现
 	Object.defineProperty(Object, 'is', {
@@ -62,6 +63,16 @@
 	Object.assign({},{})
 	// 属性枚举
 	// Object.getOwnPropertyDescriptor('[Object]','[Property]')
-	
+	let proto = {};
+	let obj = { x: 10 };
+	// setPrototypeOf -> 指向替换原型 obj被替换对象 proto为需要替换的原型 原型不能为 undefined 和 null
+	Object.setPrototypeOf(obj, proto);
+
+	proto.y = 20;
+	proto.z = 40;
+
+	obj.x // 10
+	obj.y // 20
+	obj.z // 40
 </script>
 </html>
